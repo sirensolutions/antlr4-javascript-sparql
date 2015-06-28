@@ -851,18 +851,15 @@ SparqlLexer.ruleNames = [ "WS", "BASE", "PREFIX", "SELECT", "DISTINCT",
 
 SparqlLexer.grammarFileName = "SparqlLexer.g4";
 
-}
+return SparqlLexer;
+};
 
 
 },{}],2:[function(require,module,exports){
 // Generated from sparql/SparqlParser.g4 by ANTLR 4.5
 // jshint ignore: start
-//var antlr4 = require('antlr4');
-//var SparqlParserListener = require('./SparqlParserListener').SparqlParserListener;
-
 
 exports.SparqlParser = function (antlr4, SparqlParserListener) {
-
 
 var grammarFileName = "SparqlParser.g4";
 
@@ -14937,6 +14934,7 @@ SparqlParser.prototype.expression_sempred = function(localctx, predIndex) {
 	}
 };
 
+return SparqlParser;
 };
 
 },{}],3:[function(require,module,exports){
@@ -16243,7 +16241,7 @@ SparqlParserListener.prototype.exitAnon = function(ctx) {
 };
 
 return SparqlParserListener;
-}
+};
 
 },{}],4:[function(require,module,exports){
 // Generated from sparql/SparqlParser.g4 by ANTLR 4.5
@@ -16975,7 +16973,8 @@ SparqlParserVisitor.prototype.visitBlankNode = function(ctx) {
 SparqlParserVisitor.prototype.visitAnon = function(ctx) {
 };
 
-}
+return SparqlParserVisitor;
+};
 },{}],5:[function(require,module,exports){
 var sparqlLexer = require('./lib/SparqlLexer.js');
 var sparqlParser = require('./lib/SparqlParser.js');
