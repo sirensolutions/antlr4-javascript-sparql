@@ -1580,6 +1580,7 @@ function SparqlParser (input) {
     var atn = new antlr4.atn.ATNDeserializer().deserialize(serializedATN);
     var decisionsToDFA = atn.decisionToState.map( function(ds, index) { return new antlr4.dfa.DFA(ds, index); });
     var sharedContextCache = new antlr4.PredictionContextCache();
+    this.atn = atn; // instead of Object.defineProperty commented in line 738
     // szydan end
 
     antlr4.Parser.call(this, input);
@@ -1593,11 +1594,13 @@ function SparqlParser (input) {
 SparqlParser.prototype = Object.create(antlr4.Parser.prototype);
 SparqlParser.prototype.constructor = SparqlParser;
 
+/*
 Object.defineProperty(SparqlParser.prototype, "atn", {
 	get : function() {
 		return atn;
 	}
 });
+*/
 
 SparqlParser.EOF = antlr4.Token.EOF;
 SparqlParser.WS = 1;
