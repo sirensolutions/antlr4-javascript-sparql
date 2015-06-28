@@ -1,0 +1,27 @@
+{
+  "name": "antlr4-javascript-sparql",
+  "version": "1.0.0",
+  "description": "antlr4-javascript-sparql universal module definition",
+  "main": "release/antlr4-sparql.js",
+  "scripts": {
+    "preinstall": "browserify  --ignore-missing main.js -o release/antlr4-sparql.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/szydan/antlr4-javascript-sparql.git"
+  },
+  "keywords": [
+    "antl4",
+    "umd"
+  ],
+  "author": "Szymon Danielczyk <danielczyk.szymon@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/szydan/antlr4-javascript-sparql/issues"
+  },
+  "homepage": "https://github.com/szydan/antlr4-javascript-sparql",
+  "devDependencies": {
+    "browserify": "^10.2.4"
+  }
+}
