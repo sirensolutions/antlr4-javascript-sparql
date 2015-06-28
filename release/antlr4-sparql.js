@@ -17004,8 +17004,8 @@ var sparqlParserVisitor = require('./lib/SparqlParserVisitor');
 
     return {
       SparqlLexer: sparqlLexer(antlr4),
-      SparqlParser: sparqlParser(antlr4, listener.SparqlParserListener), 
-      SparqlParserListener: sparqlParserListener(antlr4),
+      SparqlParser: sparqlParser(antlr4, listener), 
+      SparqlParserListener: listener,
       SparqlParserVisitor: sparqlParserVisitor(antlr4)
     };
 
