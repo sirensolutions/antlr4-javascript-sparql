@@ -1,6 +1,6 @@
 {
   "name": "antlr4-javascript-sparql",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "antlr4-javascript-sparql universal module definition",
   "main": "release/antlr4-sparql.js",
   "scripts": {
