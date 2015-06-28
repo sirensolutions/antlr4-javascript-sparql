@@ -564,12 +564,14 @@ var serializedATN = ["\3\u0430\ud6d1\u8206\uad2d\u4417\uaef1\u8d80\uaadd",
     "\u0534\u053a\u053c\u0542\u0544\u0548\u0550\u055b\u0560\u0590\3\2e\2"].join("");
 
 
-var atn = new antlr4.atn.ATNDeserializer().deserialize(serializedATN);
-
-var decisionsToDFA = atn.decisionToState.map( function(ds, index) { return new antlr4.dfa.DFA(ds, index); });
 
 function SparqlLexer(input) {
-	antlr4.Lexer.call(this, input);
+    // szydan moved to constructor 
+    var atn = new antlr4.atn.ATNDeserializer().deserialize(serializedATN);
+    var decisionsToDFA = atn.decisionToState.map( function(ds, index) { return new antlr4.dfa.DFA(ds, index); });
+    // szydan end
+
+    antlr4.Lexer.call(this, input);
     this._interp = new antlr4.atn.LexerATNSimulator(this, atn, decisionsToDFA, new antlr4.PredictionContextCache());
     return this;
 }
@@ -1479,12 +1481,6 @@ var serializedATN = ["\3\u0430\ud6d1\u8206\uad2d\u4417\uaef1\u8d80\uaadd",
     "\u05cb\u05cf\u05d5\u05da\u05e8\u05ee"].join("");
 
 
-var atn = new antlr4.atn.ATNDeserializer().deserialize(serializedATN);
-
-var decisionsToDFA = atn.decisionToState.map( function(ds, index) { return new antlr4.dfa.DFA(ds, index); });
-
-var sharedContextCache = new antlr4.PredictionContextCache();
-
 var literalNames = [ 'null', 'null', 'null', 'null', 'null', 'null', 'null', 
                      'null', 'null', 'null', 'null', 'null', 'null', 'null', 
                      'null', 'null', 'null', 'null', 'null', 'null', 'null', 
@@ -1580,7 +1576,13 @@ var ruleNames =  [ "query", "prologue", "baseDecl", "prefixDecl", "selectQuery",
                    "anon" ];
 
 function SparqlParser (input) {
-	antlr4.Parser.call(this, input);
+    // szydan moved into constructor
+    var atn = new antlr4.atn.ATNDeserializer().deserialize(serializedATN);
+    var decisionsToDFA = atn.decisionToState.map( function(ds, index) { return new antlr4.dfa.DFA(ds, index); });
+    var sharedContextCache = new antlr4.PredictionContextCache();
+    // szydan end
+
+    antlr4.Parser.call(this, input);
     this._interp = new antlr4.atn.ParserATNSimulator(this, atn, decisionsToDFA, sharedContextCache);
     this.ruleNames = ruleNames;
     this.literalNames = literalNames;
@@ -16985,7 +16987,7 @@ var sparqlParserVisitor = require('./lib/SparqlParserVisitor');
 
     if (typeof define === 'function' && define.amd) {
         // AMD
-        define(['antlr4'], factory(antlr4));
+        define(['antlr4'], factory());
     } else if (typeof exports === 'object') {
         // Node, CommonJS-like
         module.exports = factory(require('antlr4'));
