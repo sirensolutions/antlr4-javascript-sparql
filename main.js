@@ -7,7 +7,7 @@ var sparqlParserVisitor = require('./lib/SparqlParserVisitor');
 
     if (typeof define === 'function' && define.amd) {
         // AMD
-        define(['antlr4'], factory());
+        define(['antlr4'], factory);
     } else if (typeof exports === 'object') {
         // Node, CommonJS-like
         module.exports = factory(require('antlr4'));
@@ -17,9 +17,11 @@ var sparqlParserVisitor = require('./lib/SparqlParserVisitor');
     }
 }(this, function (antlr4) {
 
+    var listener = sparqlParserListener(antlr4);
+
     return {
       SparqlLexer: sparqlLexer(antlr4),
-      SparqlParser: sparqlParser(antlr4, SparqlParserListener.SparqlParserListener), 
+      SparqlParser: sparqlParser(antlr4, listener.SparqlParserListener), 
       SparqlParserListener: sparqlParserListener(antlr4),
       SparqlParserVisitor: sparqlParserVisitor(antlr4)
     };
