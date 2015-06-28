@@ -7,7 +7,7 @@ var sparqlParserVisitor = require('./lib/SparqlParserVisitor');
 
     if (typeof define === 'function' && define.amd) {
         // AMD
-        define(['antlr4'], factory());
+        define(['antlr4'], factory(antlr4));
     } else if (typeof exports === 'object') {
         // Node, CommonJS-like
         module.exports = factory(require('antlr4'));

@@ -2,7 +2,7 @@
 // Generated from sparql/SparqlLexer.g4 by ANTLR 4.5
 // jshint ignore: start
 
-exports.SparqlLexer = function (antlr4) {
+module.exports = function (antlr4) {
 
 var serializedATN = ["\3\u0430\ud6d1\u8206\uad2d\u4417\uaef1\u8d80\uaadd",
     "\2\u00a4\u05a6\b\1\4\2\t\2\4\3\t\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\4",
@@ -859,7 +859,7 @@ return SparqlLexer;
 // Generated from sparql/SparqlParser.g4 by ANTLR 4.5
 // jshint ignore: start
 
-exports.SparqlParser = function (antlr4, SparqlParserListener) {
+module.exports = function (antlr4, SparqlParserListener) {
 
 var grammarFileName = "SparqlParser.g4";
 
@@ -14943,7 +14943,7 @@ return SparqlParser;
 
 
 
-exports.SparqlParserListener = function (antlr4) {
+module.exports = function (antlr4) {
 
 // This class defines a complete listener for a parse tree produced by SparqlParser.
 function SparqlParserListener() {
@@ -16247,7 +16247,7 @@ return SparqlParserListener;
 // Generated from sparql/SparqlParser.g4 by ANTLR 4.5
 // jshint ignore: start
 
-exports.SparqlParserVisitor = function (antlr4) {
+module.exports = function (antlr4) {
 
 // This class defines a complete generic visitor for a parse tree produced by SparqlParser.
 
@@ -16985,7 +16985,7 @@ var sparqlParserVisitor = require('./lib/SparqlParserVisitor');
 
     if (typeof define === 'function' && define.amd) {
         // AMD
-        define(['antlr4'], factory());
+        define(['antlr4'], factory(antlr4));
     } else if (typeof exports === 'object') {
         // Node, CommonJS-like
         module.exports = factory(require('antlr4'));
