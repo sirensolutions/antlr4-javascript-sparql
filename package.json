@@ -22,5 +22,8 @@
   "homepage": "https://github.com/szydan/antlr4-javascript-sparql",
   "devDependencies": {
     "browserify": "^10.2.4"
+  },
+  "dependencies": {
+    "antlr4": "^4.5.2"
   }
 }
