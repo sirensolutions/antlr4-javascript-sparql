@@ -1,6 +1,6 @@
 {
   "name": "antlr4-javascript-sparql",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "homepage": "https://github.com/szydan/antlr4-javascript-sparql",
   "authors": [
     "Szymon Danielczyk <danielczyk.szymon@gmail.com>"

@@ -19,11 +19,34 @@ Then a few modyfications were made to generated classes.
  * in SparqlLexer - **atn** and **decisionToFDA** where moved inside the constructor
  * in SparqlParser - **atn** **decisionToFDA** and  **sharedContextCache** where moved inside the constructor and  atn was directly assigned to this and the **Object.defineProperty** was commented out
 
-### How to build
+### Useage
 
-It uses broserify to combine all needed files into single UMD module     
-To build type:    
-
-    $ node install
+To build UMD module type:    
+ 
+```    
+npm install -g browserify
+browserify  --ignore-missing main.js -o release/antlr4-sparql.js",
+```
     
 The result module is in **release/antlr4-sparql.js
+
+To use with webpack define following shim antlr4-sparql.js  
+
+```
+var antlr4 = require('antlr4-base');
+var sparqlLexer = require('node_modules/antlr4-javascript-sparql/lib/SparqlLexer.js');
+var sparqlParser = require('node_modules/antlr4-javascript-sparql/lib/SparqlParser.js');
+var sparqlParserListener = require('node_modules/antlr4-javascript-sparql/lib/SparqlParserListener');
+var sparqlParserVisitor = require('node_modules/antlr4-javascript-sparql/lib/SparqlParserVisitor');
+var listener = sparqlParserListener(antlr4);
+
+module.exports = {
+  SparqlLexer: sparqlLexer(antlr4),
+  SparqlParser: sparqlParser(antlr4, listener),
+  SparqlParserListener: listener,
+  SparqlParserVisitor: sparqlParserVisitor(antlr4)
+};
+```
+
+
+
